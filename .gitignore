@@ -107,11 +107,14 @@ celerybeat.pid
 # Environments
 .env
 .venv
+.tech-battalion-cms
 env/
 venv/
+tech-battalion-cms/
 ENV/
 env.bak/
 venv.bak/
+tech-battalion-cms.bak/
 
 # Spyder project settings
 .spyderproject
