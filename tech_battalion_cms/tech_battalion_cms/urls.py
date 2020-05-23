@@ -1,3 +1,4 @@
+from .api import api_router
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
@@ -16,6 +17,7 @@ urlpatterns = [
 
     url(r'^search/$', search_views.search, name='search'),
 
+    url(r'^api/v2/', api_router.urls),
 ]
 
 
