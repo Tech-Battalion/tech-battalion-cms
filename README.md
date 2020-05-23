@@ -1,2 +1,2 @@
 # tech-battalion-cms
-Django CMS for Tech Battalion website
+Wagtail CMS for Tech Battalion website
