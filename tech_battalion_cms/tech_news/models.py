@@ -18,19 +18,17 @@ class BlogIndexPage(Page):
         FieldPanel('intro', classname="full")
     ]
 
-class BlogPageTag(TaggedItemBase):
-    content_object = ParentalKey(
-        'BlogPage',
-        related_name='tagged_items',
-        on_delete=models.CASCADE
-    )
+# class BlogPageTag(TaggedItemBase):
+#     content_object = ParentalKey(
+#         'BlogPage',
+#         related_name='tagged_items',
+#         on_delete=models.CASCADE
+#     )
 
 class BlogPage(Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
-    tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
-
 
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
@@ -38,13 +36,9 @@ class BlogPage(Page):
     ]
 
     content_panels = Page.content_panels + [
-        MultiFieldPanel([
-            FieldPanel('date'),
-            FieldPanel('tags'),
-        ], heading="Blog information"),
+        FieldPanel('date'),
         FieldPanel('intro'),
-        FieldPanel('body'),
-        InlinePanel('gallery_images', label="Gallery images"),
+        FieldPanel('body', classname="full"),
     ]
 
 
